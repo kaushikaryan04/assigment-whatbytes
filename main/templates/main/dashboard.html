@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .main-div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px; 
+
+        }
+
+
+    </style>
+
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class = "main-div">
+    <h1>Hi! {{username}}</h1>
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form> 
+    <p><a href="{% url 'password_reset' %}">Forgot Password?</a></p>
+    <p><a href="{% url 'password_change' %}">Change Password?</a></p>
+ 
+
+    <p><a href ="{%  url 'profile' %}"> Profile </a></p>
+</div>
+    
+</body>
+</html>
